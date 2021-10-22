@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger-with-children */
+import { useState } from 'react';
 import { useParams } from 'react-router'
 import styled from 'styled-components';
 import Chart from '../components/Chart';
@@ -9,7 +10,15 @@ import formatNumber from '../extras/FormatNumber';
 function SingleCrypto() {
     const { coinHistoryQuery, global, coinHistory, coinMarket, loading, singleCoinData } = useGlobalContext();
     const params = useParams();
-    if (loading) {
+    const [ss, sss] = useState(true);
+
+    const toggle = () => {
+        setTimeout(() => {
+            sss(false);
+        }, 2000)
+    }
+    if (loading || ss) {
+        toggle();
         return <Loading />
     }
     return (

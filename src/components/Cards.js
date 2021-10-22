@@ -17,7 +17,7 @@ function Cards(coin) {
                         <img src={image} alt="bitcoin" />
                     </section>
                     <div className="info">
-                        <p>Price: {formatNumber(price)}</p>
+                        <p>Price: ${formatNumber(price)}</p>
                         <p>Market Cap: {formatNumber(marketCap)}</p>
                         <p>Daily Charge: {priceChange.toFixed(2)}%</p>
                     </div>

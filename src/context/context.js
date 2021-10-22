@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { fetchCoinHistory, fetchCoins, fetchGlobal, fetchNews, fetchSingleCoin } from '../api/api';
 
@@ -74,14 +73,12 @@ const AppProvider = ({ children }) => {
         Promise.all([
             fetchSingleCoin(id),
             fetchCoinHistory(days, id)
-        ]).then(axios.spread((...res) => {
+        ]).then(((res) => {
             setSingleCoinData(res[0]);
             setCoinMarket(res[1].prices);
             setLoading(false);
         }))
     }, [coinHistory])
-
-
 
 
     return <AppContext.Provider value={

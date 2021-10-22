@@ -21,13 +21,13 @@ function Nav() {
                 }>
 
                     <li className={navSelected === '/' ? 'active' : ''}>
-                        <Link to='/' ><AiOutlineHome /><p>Home</p></Link>
+                        <Link to='/' ><AiOutlineHome className='icon' /><p>Home</p></Link>
                     </li>
                     <li className={navSelected === '/cryptos' ? 'active' : ''}>
-                        <Link to='/cryptos' ><BsCurrencyBitcoin /><p>Cryptocurrencies</p></Link>
+                        <Link to='/cryptos' ><BsCurrencyBitcoin className='icon' /><p>Cryptocurrencies</p></Link>
                     </li>
                     <li className={navSelected === '/cryptonews' ? 'active' : ""}>
-                        <Link to='/cryptonews'><AiOutlineBulb /><p>News</p> </Link>
+                        <Link to='/cryptonews'><AiOutlineBulb className='icon' /><p>News</p> </Link>
                     </li>
                 </ul>
                 <span className="hamburger">
@@ -92,20 +92,23 @@ const Wrapper = styled.div`
     li a{
         display: flex;
         flex-direction: row;
+        font-size: 10px;
         width: 100%;
         align-items: baseline;
-        padding: 10px;
-
+        padding: 10px 2px;
+        .icon{
+            display: none;
+        }
+        p{
+            padding-left: 10px;
+            font-size: 1.29rem;
+        }
     }
 
     li:hover{
         background-color: #1890F7;
     }
 
-    p{
-        padding-left: 10px;
-        font-size: 1.29rem;
-    }
 
     main{
         margin-left: 300px;
@@ -119,9 +122,9 @@ const Wrapper = styled.div`
       nav{
         display: flex;
         flex-direction: row;
-        flex-wrap: inherit;
+        flex-wrap: wrap;
         min-width: 100vw;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         align-items: center;
         height: auto;
       }
@@ -140,12 +143,24 @@ const Wrapper = styled.div`
           display: flex;
           position: absolute;
           flex-direction: row;
-          align-items: centers;
-          min-width: 200px;
-          max-width: 200px;
+          min-width: auto;
+          max-width: 100px;
           justify-content: center;
           top:90px;
-          left: 40%;
+          left: 34%;
+          li a{
+
+              p,.icon{
+                font-size: 1.2rem;
+              }
+          }
+          li:hover{
+              background-color: inherit;
+              color: #1890F7;
+          }
+      }
+      .active{
+          background-color: inherit;
       }
       .hamburger{
         display: flex;

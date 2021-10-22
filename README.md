@@ -1,6 +1,6 @@
 # Cryptocurrencies Stats React-App
 
-Live demo [click here](https://www.google.com)
+Live demo [click here](https://cryptocurrency-react-app-prakash.netlify.app/)
 
 ## How to use
 
