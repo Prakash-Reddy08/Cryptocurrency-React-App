@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     .cryptos{
         display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+        grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
         grid-row-gap: 2rem;
         grid-column-gap: 2rem;
     }

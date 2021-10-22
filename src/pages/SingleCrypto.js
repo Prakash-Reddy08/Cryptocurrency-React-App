@@ -33,7 +33,7 @@ function SingleCrypto() {
                         </select>
                     </div>
                     <div className="info">
-                        <p>Current Bitcoin Price: ${formatNumber(singleCoinData?.market_data?.current_price?.usd)}</p>
+                        <p>Current ({params.id}) Price: ${formatNumber(singleCoinData?.market_data?.current_price?.usd)}</p>
                     </div>
                 </div>
                 <div className="line-chart">
@@ -230,6 +230,7 @@ const Wrapper = styled.div`
                 margin-left: 2rem;
                 font-weight: 900;
                 font-size: 18px;
+                text-transform: capitalize;
                 color: rgba(0,0,0,0.85);
             }
         }
