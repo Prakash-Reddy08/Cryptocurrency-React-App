@@ -10,14 +10,14 @@ import formatNumber from '../extras/FormatNumber';
 function SingleCrypto() {
     const { coinHistoryQuery, global, coinHistory, coinMarket, loading, singleCoinData } = useGlobalContext();
     const params = useParams();
-    const [ss, sss] = useState(true);
+    const [wait, setWait] = useState(true);
 
     const toggle = () => {
         setTimeout(() => {
-            sss(false);
+            setWait(false);
         }, 2000)
     }
-    if (loading || ss) {
+    if (loading || wait) {
         toggle();
         return <Loading />
     }
@@ -237,6 +237,7 @@ const Wrapper = styled.div`
             display: flex;
             p{
                 margin-left: 2rem;
+                text-transform: capitalize;
                 font-weight: 900;
                 font-size: 18px;
                 text-transform: capitalize;

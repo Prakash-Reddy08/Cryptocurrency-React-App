@@ -124,7 +124,7 @@ const Wrapper = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
         min-width: 100vw;
-        /* justify-content: space-between; */
+        justify-content: space-between;
         align-items: center;
         height: auto;
       }
