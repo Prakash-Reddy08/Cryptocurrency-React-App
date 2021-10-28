@@ -8,15 +8,18 @@ let ranges = [
 ];
 
 function formatNumber(n) {
-    for (let i = 0; i < ranges.length; i++) {
-        if (n >= ranges[i].divider) {
-            if (ranges[i].suffix === 'B' || 'T' || 'P' || 'E') {
-                return (n / ranges[i].divider).toFixed(1).toString() + ranges[i].suffix;
+    if (n) {
+        for (let i = 0; i < ranges.length; i++) {
+            if (n >= ranges[i].divider) {
+                if (ranges[i].suffix === 'B' || 'T' || 'P' || 'E') {
+                    return (n / ranges[i].divider).toFixed(1).toString() + ranges[i].suffix;
+                }
+                return (n / ranges[i].divider).toFixed(2).toString() + ranges[i].suffix;
             }
-            return (n / ranges[i].divider).toFixed(2).toString() + ranges[i].suffix;
         }
+        return n.toString();
     }
-    return n.toString();
+    return "";
 }
 
 

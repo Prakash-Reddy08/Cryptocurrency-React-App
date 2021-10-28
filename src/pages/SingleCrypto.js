@@ -10,15 +10,7 @@ import formatNumber from '../extras/FormatNumber';
 function SingleCrypto() {
     const { coinHistoryQuery, global, coinHistory, coinMarket, loading, singleCoinData } = useGlobalContext();
     const params = useParams();
-    const [wait, setWait] = useState(true);
-
-    const toggle = () => {
-        setTimeout(() => {
-            setWait(false);
-        }, 2000)
-    }
-    if (loading || wait) {
-        toggle();
+    if (loading) {
         return <Loading />
     }
     return (
@@ -59,31 +51,31 @@ function SingleCrypto() {
                             <li>
                                 price to USD
                                 <span>
-                                    ${formatNumber(singleCoinData.market_data.current_price.usd)}
+                                    ${formatNumber(singleCoinData?.market_data?.current_price?.usd)}
 
                                 </span>
                             </li>
                             <li>
-                                Rank <span>{formatNumber(singleCoinData.market_cap_rank)}</span>
+                                Rank <span>{formatNumber(singleCoinData?.market_cap_rank)}</span>
                             </li>
                             <li>
                                 24h Volume
                                 <span>
-                                    ${formatNumber(singleCoinData.market_data.total_volume.usd)}
+                                    ${formatNumber(singleCoinData?.market_data?.total_volume?.usd)}
 
                                 </span>
                             </li>
                             <li>
                                 Market Cap
                                 <span>
-                                    ${formatNumber(singleCoinData.market_data.market_cap.usd)}
+                                    ${formatNumber(singleCoinData?.market_data?.market_cap?.usd)}
 
                                 </span>
                             </li>
                             <li>
                                 All-time-high(daily avg.)
                                 <span>
-                                    ${formatNumber(singleCoinData.market_data.high_24h.usd)}
+                                    ${formatNumber(singleCoinData?.market_data?.high_24h?.usd)}
 
                                 </span>
                             </li>
@@ -116,7 +108,7 @@ function SingleCrypto() {
             </div>
             <div className='desc-section'>
                 <h4>About {params.id}</h4>
-                <div className='desc' dangerouslySetInnerHTML={{ __html: singleCoinData.description.en }} />
+                <div className='desc' dangerouslySetInnerHTML={{ __html: singleCoinData?.description?.en }} />
             </div>
         </Wrapper>
     )
