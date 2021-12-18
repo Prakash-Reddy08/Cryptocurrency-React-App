@@ -19,7 +19,7 @@ function Cards(coin) {
                     <div className="info">
                         <p>Price: ${formatNumber(price)}</p>
                         <p>Market Cap: {formatNumber(marketCap)}</p>
-                        <p>Daily Charge: {priceChange.toFixed(2)}%</p>
+                        <p>Daily Charge: {priceChange?.toFixed(2)}%</p>
                     </div>
                 </div>
             </Link>
