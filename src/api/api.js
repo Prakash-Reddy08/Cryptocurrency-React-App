@@ -5,9 +5,10 @@ const fetchGlobal = async () => {
     let options = {
         method: 'GET',
         url: 'https://coinranking1.p.rapidapi.com/stats',
+        params: { referenceCurrencyUuid: 'yhjMzLPhuIDl' },
         headers: {
             'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-            'x-rapidapi-key': API_KEY
+            'x-rapidapi-key': process.env.REACT_APP_COINRANK_API_KEY
         }
     };
     const response = await axios.request(options);

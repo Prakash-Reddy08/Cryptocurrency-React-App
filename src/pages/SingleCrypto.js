@@ -1,5 +1,3 @@
-/* eslint-disable react/no-danger-with-children */
-import { useState } from 'react';
 import { useParams } from 'react-router'
 import styled from 'styled-components';
 import Chart from '../components/Chart';

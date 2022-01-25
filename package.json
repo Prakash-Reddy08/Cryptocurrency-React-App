@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.23.0",
+    "axios": "^0.25.0",
     "fusioncharts": "^3.18.0",
     "hamburger-react": "^2.4.1",
     "moment": "^2.29.1",
