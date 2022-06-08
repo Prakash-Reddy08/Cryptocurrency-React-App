@@ -1,37 +1,45 @@
-import React from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import Nav from './components/Nav';
-import { Home, Cryptos, News, SingleCrypto, Error } from './pages'
+import Loading from './components/Loading';
+
+const Nav = lazy(() => import("./components/Nav"))
+const Home = lazy(() => import("./pages/Home"))
+const Cryptos = lazy(() => import("./pages/Cryptos"))
+const News = lazy(() => import("./pages/News"))
+const SingleCrypto = lazy(() => import("./pages/SingleCrypto"))
+const Error = lazy(() => import("./pages/Error"))
 
 function App() {
   return (
-    <Router>
-      <Wrapper>
-        <div className='nav'>
-          <Nav />
-        </div>
-        <div className="page">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/cryptonews">
-              <News />
-            </Route>
-            <Route path="/cryptos">
-              <Cryptos />
-            </Route>
-            <Route path="/crypto/:id">
-              <SingleCrypto />
-            </Route>
-            <Route path="*">
-              <Error />
-            </Route>
-          </Switch>
-        </div>
-      </Wrapper>
-    </Router>
+    <Suspense fallback={<Loading />}>
+      <Router>
+        <Wrapper>
+          <div className='nav'>
+            <Nav />
+          </div>
+          <div className="page">
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/cryptonews">
+                <News />
+              </Route>
+              <Route path="/cryptos">
+                <Cryptos />
+              </Route>
+              <Route path="/crypto/:id">
+                <SingleCrypto />
+              </Route>
+              <Route path="*">
+                <Error />
+              </Route>
+            </Switch>
+          </div>
+        </Wrapper>
+      </Router>
+    </Suspense>
   );
 }
 
